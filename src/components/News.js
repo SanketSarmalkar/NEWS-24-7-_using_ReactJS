@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinner";
 
+
 export class News extends Component {
   constructor() {
     super();
@@ -18,7 +19,7 @@ export class News extends Component {
     this.setState({
       loading: true
     });
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=01970ce6240f47bf97b0a62aa35d70f3&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&apiKey=${process.env.API_KEY}&page=${
       this.state.page + 1
     }&pagesize=${this.props.pageSize}`;
     let data = await fetch(url);
